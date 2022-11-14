@@ -9,7 +9,7 @@ export default defineComponent({
 <template>
   <div class="section-products__product-card">
     <figure class="section-products__product-card--figure">
-      <img :alt="product.name" :src="product.img" class="section-products__product-card--img">
+      <img :alt="product.name" src="@/assets/logo.svg" class="section-products__product-card--img">
 
 
     </figure>
