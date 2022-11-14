@@ -1,0 +1,44 @@
+.heading-primary {
+  font-family: Lobster, sans-serif;
+  font-size: 3rem;
+  color: var(--color-primary);
+}
+
+.heading-secondary {
+  font-family: Lobster, sans-serif;
+  font-size: 2.4rem;
+  color: var(--color-text);
+}
+
+.text-absolute-center {
+  // text-align: center;
+  width: fit-content;
+  transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+
+  @include respond(sm) {
+    font-size: 2rem;
+  }
+}
+
+.heading-underline {
+  &::after {
+    content: "";
+    background-color: var(--color-primary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    animation: scaleWidth 1s forwards;
+  }
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-center {
+  text-align: center !important;
+}

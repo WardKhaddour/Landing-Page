@@ -1,0 +1,56 @@
+.btn {
+  all: unset;
+  color: var(--color-text);
+  font-size: 2rem;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  background-color: var(--color-secondary);
+  border-radius: 2px;
+
+  font-family: Lobster, sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s;
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-0.3rem);
+  }
+  &:active {
+    transform: translateY(0rem);
+  }
+}
+.cta {
+  all: unset;
+  font-size: 2rem;
+  font-family: Lobster, sans-serif;
+  text-decoration: none;
+  color: var(--color-primary);
+  position: relative;
+  width: fit-content;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    border-bottom: 2px solid currentColor;
+    width: 0;
+    transition: width 0.3s;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    transform: translateY(-3px);
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
