@@ -17,7 +17,7 @@ export default defineComponent({
           name: 'Patient Data Depersonalization',
           description:
             'An service to remove data that can connect a patient to his data',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '5.99'
         },
@@ -25,7 +25,7 @@ export default defineComponent({
           id: 2,
           name: 'Clinical trials AI simulation',
           description: 'Lorem ipsum dolor sit amet consectetur adipisicing',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '10.99'
         },
@@ -34,7 +34,7 @@ export default defineComponent({
           name: 'Predictions endpoints',
           description:
             'make predictions for a set of given parameters',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '4.99'
         }, {
@@ -42,7 +42,7 @@ export default defineComponent({
           name: 'Document analysis (lab test)',
           description:
             'OCR, Data recognition and extraction from lab tests from physical or digital formats, expecte support: PDF, PNG, JPG (and other image formats), CSV',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '49.99'
         },
@@ -51,7 +51,7 @@ export default defineComponent({
           name: 'Product 5',
           description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit.      Perferendis Lorem dolor',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '99.99'
         },
@@ -60,7 +60,7 @@ export default defineComponent({
           name: 'Product 6',
           description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit.      Perferendis Lorem dolor',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '4.99'
         },
@@ -69,7 +69,7 @@ export default defineComponent({
           name: 'Product 7',
           description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit.      Perferendis Lorem dolor',
-          img: './src/assets/logo.svg',
+          img: '/src/assets/logo.svg',
           link: '#',
           price: '12.99'
         },

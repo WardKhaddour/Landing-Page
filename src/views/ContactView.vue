@@ -65,11 +65,18 @@ export default defineComponent({
   &__img {
     position: absolute;
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    left: 20%;
+    transform: translate(-50%, -50%);
     display: inline-block;
-    width: 30rem;
-    height: 30rem;
+    width: 43rem;
+    height: 43rem;
+
+    // margin: 0 auto;
+    // padding-left: 4rem;
+    @include respond(md) {
+      width: 33rem;
+      height: 33rem;
+    }
 
     @include respond(sm) {
       display: none;
