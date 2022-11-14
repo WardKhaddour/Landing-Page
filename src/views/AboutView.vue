@@ -121,8 +121,20 @@ export default defineComponent({
     }
 
     &--img {
-      width: 20rem;
-      height: 20rem;
+      width: 43rem;
+      height: 43rem;
+
+      // margin: 0 auto;
+      // padding-left: 4rem;
+      @include respond(md) {
+        width: 33rem;
+        height: 33rem;
+      }
+
+      @include respond(sm) {
+        display: none;
+
+      }
     }
   }
 }
