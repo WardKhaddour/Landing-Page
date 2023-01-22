@@ -6,7 +6,8 @@ export default defineComponent({
   data() {
     return {
       title: 'Our Products',
-      paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, expedita?Enim aliquam molestiae ipsum est ullam officia veniam natus non repellat nulla, debitis provident fugiat  unde error id deleniti earum!',
+      paragraph:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, expedita?Enim aliquam molestiae ipsum est ullam officia veniam natus non repellat nulla, debitis provident fugiat  unde error id deleniti earum!',
       windowWidth: 0,
       curSlide: 0,
       maxSlides: 0,
@@ -14,46 +15,47 @@ export default defineComponent({
       products: [
         {
           id: 1,
-          name: 'Patient Data Depersonalization',
+          name: 'Product 1',
           description:
-            'An service to remove data that can connect a patient to his data',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '5.99'
+          price: '5.99',
         },
         {
           id: 2,
-          name: 'Clinical trials AI simulation',
+          name: 'Product 2',
           description: 'Lorem ipsum dolor sit amet consectetur adipisicing',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '10.99'
+          price: '10.99',
         },
         {
           id: 3,
-          name: 'Predictions endpoints',
+          name: 'Product 3',
           description:
-            'make predictions for a set of given parameters',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '4.99'
-        }, {
+          price: '4.99',
+        },
+        {
           id: 4,
-          name: 'Document analysis (lab test)',
+          name: 'Product 4',
           description:
-            'OCR, Data recognition and extraction from lab tests from physical or digital formats, expecte support: PDF, PNG, JPG (and other image formats), CSV',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis Lorem dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis Lorem dolor',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '49.99'
+          price: '49.99',
         },
         {
           id: 5,
           name: 'Product 5',
           description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit.      Perferendis Lorem dolor',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis Lorem dolor',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '99.99'
+          price: '99.99',
         },
         {
           id: 6,
@@ -62,7 +64,7 @@ export default defineComponent({
             'Lorem ipsum dolor sit amet consectetur adipisicing elit.      Perferendis Lorem dolor',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '4.99'
+          price: '4.99',
         },
         {
           id: 7,
@@ -71,7 +73,7 @@ export default defineComponent({
             'Lorem ipsum dolor sit amet consectetur adipisicing elit.      Perferendis Lorem dolor',
           img: '/src/assets/logo.svg',
           link: '#',
-          price: '12.99'
+          price: '12.99',
         },
       ],
     };
@@ -92,12 +94,11 @@ export default defineComponent({
         for (let i = 0; i < len; i += 2) {
           let slideElements;
           if (i + 1 >= len) {
-            slideElements = [this.products[i]]
+            slideElements = [this.products[i]];
+          } else {
+            slideElements = [this.products[i], this.products[i + 1]];
           }
-          else {
-            slideElements = [this.products[i], this.products[i + 1]]
-          }
-          newArray.push(slideElements)
+          newArray.push(slideElements);
         }
         this.maxSlides = newArray.length;
         return newArray;
@@ -106,21 +107,21 @@ export default defineComponent({
       for (let i = 0; i < len; i += 3) {
         let slideElements;
         if (i + 1 >= len) {
-          slideElements = [this.products[i]]
+          slideElements = [this.products[i]];
+        } else if (i + 2 >= len) {
+          slideElements = [this.products[i], this.products[i + 1]];
+        } else {
+          slideElements = [
+            this.products[i],
+            this.products[i + 1],
+            this.products[i + 2],
+          ];
         }
-        else if (i + 2 >= len) {
-
-          slideElements = [this.products[i], this.products[i + 1]]
-        }
-        else {
-          slideElements = [this.products[i], this.products[i + 1], this.products[i + 2]]
-        }
-        newArray.push(slideElements)
+        newArray.push(slideElements);
       }
       this.maxSlides = newArray.length;
       return newArray;
-    }
-
+    },
   },
 
   methods: {
@@ -131,7 +132,6 @@ export default defineComponent({
         this.curSlide++;
       }
       this.changeSlide();
-
     },
     goToLeftSlide() {
       if (this.curSlide === 0) {
@@ -143,62 +143,80 @@ export default defineComponent({
       this.changeSlide();
     },
     changeSlide() {
-      const slides = document.querySelectorAll('.section-products__slider--slide')!
+      const slides = document.querySelectorAll(
+        '.section-products__slider--slide'
+      )!;
 
       slides.forEach((slide, idx) => {
         slide.classList.forEach(cl => {
           if (cl.split('-')[0] === 'slide') {
-            slide.classList.remove(cl)
+            slide.classList.remove(cl);
           }
-        })
+        });
         slide.classList.add(`slide-${idx - this.curSlide}`);
-
-      })
-
+      });
     },
 
     onResize() {
-      this.windowWidth = window.innerWidth
-
-    }
-
+      this.windowWidth = window.innerWidth;
+    },
   },
   mounted() {
     this.windowWidth = window.innerWidth;
     this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize)
-    })
+      window.addEventListener('resize', this.onResize);
+    });
   },
   beforeDestroy() {
-    window.removeEventListener("resize", this.onResize)
+    window.removeEventListener('resize', this.onResize);
   },
-
 });
 </script>
 
 <template>
   <section id="#products" class="section-products">
-    <h1 class="heading-primary text-absolute-center heading-underline text-uppercase">
-      {{ title }} </h1>
+    <h1
+      class="heading-primary text-absolute-center heading-underline text-uppercase"
+    >
+      {{ title }}
+    </h1>
     <p class="section-products__paragraph text-center">
       {{ paragraph }}
     </p>
 
     <div class="section-products__slider">
-      <ProductsSlide v-for="(productSlide, i) in productsSlides" :key="i" :products="productSlide"
-        :class="`slide-${i}`">
+      <ProductsSlide
+        v-for="(productSlide, i) in productsSlides"
+        :key="i"
+        :products="productSlide"
+        :class="`slide-${i}`"
+      >
       </ProductsSlide>
     </div>
 
     <div class="section-products__slider-navigation">
-      <div class="section-products__slider-navigation--btns"><button @click="goToLeftSlide"
-          class="section-products__slider-navigation--btn">&lt;</button>
-        <button @click="goToRightSlide" class="section-products__slider-navigation--btn">&gt;</button>
+      <div class="section-products__slider-navigation--btns">
+        <button
+          @click="goToLeftSlide"
+          class="section-products__slider-navigation--btn"
+        >
+          &lt;
+        </button>
+        <button
+          @click="goToRightSlide"
+          class="section-products__slider-navigation--btn"
+        >
+          &gt;
+        </button>
       </div>
-      <div class="section-products__slider-navigation--number"><span
-          class="section-products__slider-navigation--cur-slide">
+      <div class="section-products__slider-navigation--number">
+        <span class="section-products__slider-navigation--cur-slide">
           {{ curSlide + 1 }} -
-        </span> <span class="section-products__slider-navigation--max-slides">{{ maxSlides }}</span> </div>
+        </span>
+        <span class="section-products__slider-navigation--max-slides">{{
+          maxSlides
+        }}</span>
+      </div>
     </div>
   </section>
 </template>
@@ -229,7 +247,6 @@ export default defineComponent({
     position: relative;
     height: 62rem;
     overflow: hidden;
-
 
     &--slide {
       display: flex;
@@ -273,23 +290,29 @@ export default defineComponent({
         font-size: 1.6rem;
         margin: 0 1rem;
         color: var(--color-text);
-        background-image: linear-gradient(to left top, rgba(var(--color-primary-rgb), .6),
-            rgba(var(--color-primary-rgb), .9));
+        background-image: linear-gradient(
+          to left top,
+          rgba(var(--color-primary-rgb), 0.6),
+          rgba(var(--color-primary-rgb), 0.9)
+        );
         border-radius: 50%;
         padding: 1.5rem;
         line-height: 1;
-        transition: all .2s;
+        transition: all 0.2s;
 
         &:hover {
           // padding: 1.6rem;
-          background-image: linear-gradient(to left top, rgba(var(--color-primary-rgb), .9),
-              rgba(var(--color-primary-rgb), 1));
+          background-image: linear-gradient(
+            to left top,
+            rgba(var(--color-primary-rgb), 0.9),
+            rgba(var(--color-primary-rgb), 1)
+          );
           transform: translateY(-3px);
         }
       }
     }
   }
 
-  @include slideTranslate
+  @include slideTranslate;
 }
 </style>

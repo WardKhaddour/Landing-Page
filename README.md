@@ -1,6 +1,6 @@
 # Landing Page
 
-Landing page for Longevity InTime
+Simple landing page with Vue.js, SCSS, Typescript
 
 ## Project Setup
 

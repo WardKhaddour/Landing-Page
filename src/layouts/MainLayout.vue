@@ -3,11 +3,10 @@ import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
 import { handelScroll } from '@/utils/handleNav';
 export default defineComponent({
-
   data() {
     return {
-      title: 'Longevity InTime',
-      footerText: 'By Longevity InTime 2022',
+      title: `Landing Page`,
+      footerText: `By Landing Page 2022`,
       navItems: [
         {
           name: 'About',
@@ -16,8 +15,7 @@ export default defineComponent({
         {
           name: 'Products',
           link: '#products',
-        }
-        ,
+        },
         {
           name: 'Contact',
           link: '#contact',
@@ -25,22 +23,21 @@ export default defineComponent({
         {
           name: 'Docs',
           link: '#docs',
-        }
-      ]
-    }
+        },
+      ],
+    };
   },
   mounted() {
     const navList = document.querySelector('.header__nav--list')!;
 
     navList.addEventListener('click', handelScroll);
-
   },
   methods: {
     toggleNav() {
       const nav = document.querySelector('.header__nav')!;
       nav.classList.toggle('header__nav--open');
-    }
-  }
+    },
+  },
 });
 </script>
 
@@ -48,15 +45,22 @@ export default defineComponent({
   <div class="invisible">&nbsp;</div>
   <header class="header">
     <div class="header__toggle">
-      <input type="checkbox" id="header__checkbox" class="header__toggle--checkbox" />
-      <label for="header__checkbox" class="header__toggle--button" @click="toggleNav">
+      <input
+        type="checkbox"
+        id="header__checkbox"
+        class="header__toggle--checkbox"
+      />
+      <label
+        for="header__checkbox"
+        class="header__toggle--button"
+        @click="toggleNav"
+      >
         <span class="header__toggle--icon">&nbsp;</span>
       </label>
     </div>
     <h1 class="header__title heading-secondary">{{ title }}</h1>
     <nav class="header__nav">
       <ul class="header__nav--list">
-
         <li class="header__nav--link" v-for="(item, i) in navItems" :key="i">
           <a :href="item.link">{{ item.name }}</a>
         </li>
@@ -66,9 +70,7 @@ export default defineComponent({
 
   <RouterView />
 
-  <footer class="footer text-center">
-    &copy; {{ footerText }}
-  </footer>
+  <footer class="footer text-center">&copy; {{ footerText }}</footer>
 </template>
 
 <style lang="scss" scoped>
@@ -77,8 +79,6 @@ export default defineComponent({
 .invisible {
   height: 0;
 }
-
-
 
 .header {
   // height: 5rem;
@@ -97,7 +97,7 @@ export default defineComponent({
   z-index: 100;
   padding: 1rem 3rem;
   width: 100%;
-  transition: all .2s;
+  transition: all 0.2s;
   box-shadow: 0 0.1rem 1.5rem rgba(0, 0, 0, 0.5);
 
   @include respond(sm) {
@@ -161,16 +161,16 @@ export default defineComponent({
         }
       }
 
-      &--checkbox:checked+&--button &--icon {
+      &--checkbox:checked + &--button &--icon {
         background-color: transparent;
       }
 
-      &--checkbox:checked+&--button &--icon::before {
+      &--checkbox:checked + &--button &--icon::before {
         top: 0;
         transform: rotate(135deg);
       }
 
-      &--checkbox:checked+&--button &--icon::after {
+      &--checkbox:checked + &--button &--icon::after {
         top: 0;
         transform: rotate(-135deg);
       }
@@ -239,20 +239,20 @@ export default defineComponent({
 
       &__active-from-top {
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           bottom: 0;
           left: 0;
           width: 100%;
           height: 2px;
           background-color: currentColor;
-          animation: slideIn .3s;
+          animation: slideIn 0.3s;
         }
       }
 
       &__active-from-bottom {
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           bottom: 0;
           left: 0;
